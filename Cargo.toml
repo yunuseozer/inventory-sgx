@@ -13,6 +13,11 @@ edition = "2018"
 ctor = "0.1"
 ghost = "0.1.1"
 inventory-impl = { version = "=0.1.4", path = "impl" }
+sgx_tstd = { rev = "v1.0.9", git = "https://github.com/baidu/rust-sgx-sdk.git", optional = true }
 
 [workspace]
 members = ["impl"]
+
+[features]
+default = ["mesalock_sgx"]
+mesalock_sgx = ["sgx_tstd"]
